@@ -1,4 +1,4 @@
-# Testing Longitudinal Invariance of Parent Involvement in School using ECLS-K:2011
+# [Testing Longitudinal Invariance of Parent Involvement in School using ECLS-K:2011](https://github.com/jjeffries13/MA-Primer-Presentation/blob/main/Code/Primer_Presentation.pdf)
 
 ### Dongho Choi 
 <img align="left" width="400" height="18" src="https://ucomm.unl.edu/images/brand-book/Our-marks/UNL-Name-CMYK.jpg">
