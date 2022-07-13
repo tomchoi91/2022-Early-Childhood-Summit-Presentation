@@ -1,0 +1,816 @@
+Mplus VERSION 8.7
+MUTHEN & MUTHEN
+03/29/2022  11:55 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: this is an example of a CFA with
+  categorical factor indicators
+  DATA: FILE IS K2011_invariance.dat;
+  nobservations = 1000;
+  VARIABLE: NAMES ARE
+  CHILDID2
+  PARENTID2
+  W6C6P6STR
+  W6C6P6PSU
+  W6C6P60
+  W6C6P61
+  W6C6P62
+  W6C6P63
+  W6C6P64
+  W6C6P65
+  W6C6P66
+  W6C6P67
+  W6C6P68
+  W6C6P69
+  W6C6P610
+  W6C6P611
+  W6C6P612
+  W6C6P613
+  W6C6P614
+  W6C6P615
+  W6C6P616
+  W6C6P617
+  W6C6P618
+  W6C6P619
+  W6C6P620
+  W6C6P621
+  W6C6P622
+  W6C6P623
+  W6C6P624
+  W6C6P625
+  W6C6P626
+  W6C6P627
+  W6C6P628
+  W6C6P629
+  W6C6P630
+  W6C6P631
+  W6C6P632
+  W6C6P633
+  W6C6P634
+  W6C6P635
+  W6C6P636
+  W6C6P637
+  W6C6P638
+  W6C6P639
+  W6C6P640
+  W6C6P641
+  W6C6P642
+  W6C6P643
+  W6C6P644
+  W6C6P645
+  W6C6P646
+  W6C6P647
+  W6C6P648
+  W6C6P649
+  W6C6P650
+  W6C6P651
+  W6C6P652
+  W6C6P653
+  W6C6P654
+  W6C6P655
+  W6C6P656
+  W6C6P657
+  W6C6P658
+  W6C6P659
+  W6C6P660
+  W6C6P661
+  W6C6P662
+  W6C6P663
+  W6C6P664
+  W6C6P665
+  W6C6P666
+  W6C6P667
+  W6C6P668
+  W6C6P669
+  W6C6P670
+  W6C6P671
+  W6C6P672
+  W6C6P673
+  W6C6P674
+  W6C6P675
+  W6C6P676
+  W6C6P677
+  W6C6P678
+  W6C6P679
+  W6C6P680
+  u11
+  u12
+  u13
+  u14
+  u15
+  u21
+  u22
+  u23
+  u24
+  u25
+  u31
+  u32
+  u33
+  u34
+  u35
+  u41
+  u42
+  u43
+  u44
+  u45
+  !P2ATTENB
+  !P2ATTENP
+  !P2PTCONF
+  !P2ATTENS
+  !P2VOLSCH
+  !P2METPAR
+  !P4ATTENB
+  !P4ATTENP
+  !P4PTCONF
+  !P4ATTENS
+  !P4VOLSCH
+  !P4METPAR
+  !P6ATTENB
+  !P6ATTENP
+  !P6PTCONF
+  !P6ATTENS
+  !P6VOLSCH
+  !P6METPAR
+  !P7ATTENB
+  !P7ATTENP
+  !P7PTCONF
+  !P7ATTENS
+  !P7VOLSCH
+  ;
+  USEVARIABLES ARE
+  u11
+  u12
+  u13
+  u14
+  u15
+  u21
+  u22
+  u23
+  u24
+  u25
+  u31
+  u32
+  u33
+  u34
+  u35
+  u41
+  u42
+  u43
+  u44
+  u45
+  ;
+
+  CATEGORICAL ARE
+  u11
+  u12
+  u13
+  u14
+  u15
+  u21
+  u22
+  u23
+  u24
+  u25
+  u31
+  u32
+  u33
+  u34
+  u35
+  u41
+  u42
+  u43
+  u44
+  u45
+  ;
+
+  MISSING ARE ALL (-999);
+  ANALYSIS: DIFFTEST IS deriv.dat;
+  MODEL:
+  f1 BY u11* (1)
+  u12 u13 (2-3)
+  u14 (4)
+  u15 (5)
+  ;
+  f2 BY u21* (1)
+  u22 u23 (2-3)
+  u24 (4)
+  u25 (5)
+  ;
+  f3 BY u31* (1)
+  u32 u33 (2-3)
+  u34 (4)
+  u35 (5)
+  ;
+  f4 BY u41* (1)
+  u42 u43 (2-3)
+  u44 (4)
+  u45 (5)
+  ;
+
+  f1@1
+  f2
+  f3
+  f4
+  ;
+  [f1@0 f2 f3 f4];
+
+  [u11$1 u21$1 u31$1 u41$1] (6)
+  ;
+  [u12$1 u22$1 u32$1 u42$1] (7)
+  ;
+  [u13$1 u23$1 u33$1 u43$1] (8)
+  ;
+  [u14$1 u24$1 u34$1 u44$1] (9)
+  ;
+  [u15$1 u25$1 u35$1 u45$1] (10)
+  ;
+
+  u11 with u21 u31 u41;
+  u21 with u31 u41;
+  u31 with u41;
+  u12 with u22 u32 u42;
+  u22 with u32 u42;
+  u32 with u42;
+  u13 with u23 u33 u43;
+  u23 with u33 u43;
+  u33 with u43;
+  u14 with u24 u34 u44;
+  u24 with u34 u44;
+  u34 with u44;
+  u15 with u25 u35 u45;
+  u25 with u35 u45;
+  u35 with u45;
+
+  !SAVEDATA: DIFFTEST IS deriv.dat;
+  OUTPUT: MODINDICES TECH4;
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  124
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+this is an example of a CFA with
+categorical factor indicators
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         876
+
+Number of dependent variables                                   20
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   U11         U12         U13         U14         U15         U21
+   U22         U23         U24         U25         U31         U32
+   U33         U34         U35         U41         U42         U43
+   U44         U45
+
+Continuous latent variables
+   F1          F2          F3          F4
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  K2011_invariance.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            21
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              U11           U12           U13           U14           U15
+              ________      ________      ________      ________      ________
+ U11            0.854
+ U12            0.852         0.852
+ U13            0.854         0.852         0.854
+ U14            0.853         0.852         0.853         0.853
+ U15            0.854         0.852         0.854         0.853         0.854
+ U21            0.700         0.697         0.700         0.699         0.700
+ U22            0.700         0.697         0.700         0.699         0.700
+ U23            0.700         0.697         0.700         0.699         0.700
+ U24            0.700         0.697         0.700         0.699         0.700
+ U25            0.700         0.697         0.700         0.699         0.700
+ U31            0.645         0.643         0.645         0.644         0.645
+ U32            0.643         0.640         0.643         0.642         0.643
+ U33            0.645         0.643         0.645         0.644         0.645
+ U34            0.645         0.643         0.645         0.644         0.645
+ U35            0.644         0.642         0.644         0.643         0.644
+ U41            0.605         0.604         0.605         0.604         0.605
+ U42            0.605         0.604         0.605         0.604         0.605
+ U43            0.605         0.604         0.605         0.604         0.605
+ U44            0.605         0.604         0.605         0.604         0.605
+ U45            0.605         0.604         0.605         0.604         0.605
+
+
+           Covariance Coverage
+              U21           U22           U23           U24           U25
+              ________      ________      ________      ________      ________
+ U21            0.820
+ U22            0.820         0.820
+ U23            0.820         0.820         0.820
+ U24            0.820         0.820         0.820         0.820
+ U25            0.820         0.820         0.820         0.820         0.820
+ U31            0.687         0.687         0.687         0.687         0.687
+ U32            0.685         0.685         0.685         0.685         0.685
+ U33            0.687         0.687         0.687         0.687         0.687
+ U34            0.687         0.687         0.687         0.687         0.687
+ U35            0.686         0.686         0.686         0.686         0.686
+ U41            0.646         0.646         0.646         0.646         0.646
+ U42            0.647         0.647         0.647         0.647         0.647
+ U43            0.647         0.647         0.647         0.647         0.647
+ U44            0.646         0.646         0.646         0.646         0.646
+ U45            0.647         0.647         0.647         0.647         0.647
+
+
+           Covariance Coverage
+              U31           U32           U33           U34           U35
+              ________      ________      ________      ________      ________
+ U31            0.745
+ U32            0.743         0.743
+ U33            0.745         0.743         0.745
+ U34            0.745         0.743         0.745         0.745
+ U35            0.744         0.743         0.744         0.744         0.744
+ U41            0.658         0.655         0.658         0.658         0.656
+ U42            0.659         0.656         0.659         0.659         0.658
+ U43            0.659         0.656         0.659         0.659         0.658
+ U44            0.659         0.656         0.659         0.659         0.658
+ U45            0.659         0.656         0.659         0.659         0.658
+
+
+           Covariance Coverage
+              U41           U42           U43           U44           U45
+              ________      ________      ________      ________      ________
+ U41            0.701
+ U42            0.701         0.702
+ U43            0.701         0.702         0.702
+ U44            0.700         0.701         0.701         0.701
+ U45            0.701         0.702         0.702         0.701         0.702
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    U11
+      Category 1    0.202          151.000
+      Category 2    0.798          597.000
+    U12
+      Category 1    0.643          480.000
+      Category 2    0.357          266.000
+    U13
+      Category 1    0.102           76.000
+      Category 2    0.898          672.000
+    U14
+      Category 1    0.212          158.000
+      Category 2    0.788          589.000
+    U15
+      Category 1    0.397          297.000
+      Category 2    0.603          451.000
+    U21
+      Category 1    0.135           97.000
+      Category 2    0.865          621.000
+    U22
+      Category 1    0.550          395.000
+      Category 2    0.450          323.000
+    U23
+      Category 1    0.068           49.000
+      Category 2    0.932          669.000
+    U24
+      Category 1    0.163          117.000
+      Category 2    0.837          601.000
+    U25
+      Category 1    0.414          297.000
+      Category 2    0.586          421.000
+    U31
+      Category 1    0.158          103.000
+      Category 2    0.842          550.000
+    U32
+      Category 1    0.513          334.000
+      Category 2    0.487          317.000
+    U33
+      Category 1    0.067           44.000
+      Category 2    0.933          609.000
+    U34
+      Category 1    0.178          116.000
+      Category 2    0.822          537.000
+    U35
+      Category 1    0.465          303.000
+      Category 2    0.535          349.000
+    U41
+      Category 1    0.112           69.000
+      Category 2    0.888          545.000
+    U42
+      Category 1    0.519          319.000
+      Category 2    0.481          296.000
+    U43
+      Category 1    0.086           53.000
+      Category 2    0.914          562.000
+    U44
+      Category 1    0.191          117.000
+      Category 2    0.809          497.000
+    U45
+      Category 1    0.454          279.000
+      Category 2    0.546          336.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       52
+
+Chi-Square Test of Model Fit
+
+          Value                            228.986*
+          Degrees of Freedom                   158
+          P-Value                           0.0002
+
+Chi-Square Test for Difference Testing
+
+          Value                             48.743*
+          Degrees of Freedom                    24
+          P-Value                           0.0020
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.  The DIFFTEST
+    option assumes the models are nested.  The NESTED option can be used to verify
+    that the models are nested.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.023
+          90 Percent C.I.                    0.016  0.029
+          Probability RMSEA <= .05           1.000
+
+CFI/TLI
+
+          CFI                                0.982
+          TLI                                0.978
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           4098.121
+          Degrees of Freedom                   190
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.068
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.11758017D+00
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ F1       BY
+    U11                0.620      0.041     15.216      0.000
+    U12                0.432      0.039     11.194      0.000
+    U13                0.383      0.057      6.665      0.000
+    U14                0.655      0.039     16.690      0.000
+    U15                0.760      0.040     19.212      0.000
+
+ F2       BY
+    U21                0.620      0.041     15.216      0.000
+    U22                0.432      0.039     11.194      0.000
+    U23                0.383      0.057      6.665      0.000
+    U24                0.655      0.039     16.690      0.000
+    U25                0.760      0.040     19.212      0.000
+
+ F3       BY
+    U31                0.620      0.041     15.216      0.000
+    U32                0.432      0.039     11.194      0.000
+    U33                0.383      0.057      6.665      0.000
+    U34                0.655      0.039     16.690      0.000
+    U35                0.760      0.040     19.212      0.000
+
+ F4       BY
+    U41                0.620      0.041     15.216      0.000
+    U42                0.432      0.039     11.194      0.000
+    U43                0.383      0.057      6.665      0.000
+    U44                0.655      0.039     16.690      0.000
+    U45                0.760      0.040     19.212      0.000
+
+ F2       WITH
+    F1                 0.861      0.068     12.724      0.000
+
+ F3       WITH
+    F1                 0.805      0.075     10.717      0.000
+    F2                 0.893      0.100      8.940      0.000
+
+ F4       WITH
+    F1                 0.738      0.084      8.815      0.000
+    F2                 0.826      0.100      8.297      0.000
+    F3                 0.977      0.106      9.254      0.000
+
+ U11      WITH
+    U21                0.250      0.074      3.370      0.001
+    U31                0.097      0.081      1.191      0.234
+    U41                0.330      0.074      4.436      0.000
+
+ U21      WITH
+    U31                0.222      0.073      3.059      0.002
+    U41                0.303      0.079      3.824      0.000
+
+ U31      WITH
+    U41                0.256      0.071      3.600      0.000
+
+ U12      WITH
+    U22                0.477      0.050      9.583      0.000
+    U32                0.504      0.048     10.411      0.000
+    U42                0.378      0.056      6.713      0.000
+
+ U22      WITH
+    U32                0.527      0.046     11.416      0.000
+    U42                0.428      0.052      8.178      0.000
+
+ U32      WITH
+    U42                0.450      0.051      8.849      0.000
+
+ U13      WITH
+    U23                0.502      0.089      5.627      0.000
+    U33                0.412      0.096      4.285      0.000
+    U43                0.513      0.085      6.039      0.000
+
+ U23      WITH
+    U33                0.521      0.090      5.786      0.000
+    U43                0.360      0.106      3.398      0.001
+
+ U33      WITH
+    U43                0.486      0.090      5.379      0.000
+
+ U14      WITH
+    U24                0.266      0.062      4.290      0.000
+    U34                0.097      0.075      1.291      0.197
+    U44                0.075      0.073      1.026      0.305
+
+ U24      WITH
+    U34                0.277      0.060      4.584      0.000
+    U44                0.266      0.063      4.245      0.000
+
+ U34      WITH
+    U44                0.202      0.064      3.139      0.002
+
+ U15      WITH
+    U25                0.226      0.054      4.164      0.000
+    U35                0.203      0.054      3.738      0.000
+    U45                0.108      0.058      1.858      0.063
+
+ U25      WITH
+    U35                0.177      0.054      3.300      0.001
+    U45                0.192      0.056      3.458      0.001
+
+ U35      WITH
+    U45                0.137      0.055      2.494      0.013
+
+ Means
+    F1                 0.000      0.000    999.000    999.000
+    F2                 0.225      0.054      4.182      0.000
+    F3                 0.135      0.058      2.347      0.019
+    F4                 0.169      0.060      2.809      0.005
+
+ Thresholds
+    U11$1             -0.940      0.042    -22.138      0.000
+    U12$1              0.206      0.037      5.621      0.000
+    U13$1             -1.347      0.047    -28.842      0.000
+    U14$1             -0.809      0.042    -19.072      0.000
+    U15$1             -0.077      0.042     -1.809      0.071
+    U21$1             -0.940      0.042    -22.138      0.000
+    U22$1              0.206      0.037      5.621      0.000
+    U23$1             -1.347      0.047    -28.842      0.000
+    U24$1             -0.809      0.042    -19.072      0.000
+    U25$1             -0.077      0.042     -1.809      0.071
+    U31$1             -0.940      0.042    -22.138      0.000
+    U32$1              0.206      0.037      5.621      0.000
+    U33$1             -1.347      0.047    -28.842      0.000
+    U34$1             -0.809      0.042    -19.072      0.000
+    U35$1             -0.077      0.042     -1.809      0.071
+    U41$1             -0.940      0.042    -22.138      0.000
+    U42$1              0.206      0.037      5.621      0.000
+    U43$1             -1.347      0.047    -28.842      0.000
+    U44$1             -0.809      0.042    -19.072      0.000
+    U45$1             -0.077      0.042     -1.809      0.071
+
+ Variances
+    F1                 1.000      0.000    999.000    999.000
+    F2                 1.145      0.111     10.353      0.000
+    F3                 1.178      0.118     10.013      0.000
+    F4                 1.060      0.110      9.667      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.278E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+R-SQUARE
+
+    Observed                   Residual
+    Variable        Estimate   Variance
+
+    U11                0.385      0.615
+    U12                0.187      0.813
+    U13                0.147      0.853
+    U14                0.429      0.571
+    U15                0.578      0.422
+    U21                0.441      0.559
+    U22                0.214      0.786
+    U23                0.168      0.832
+    U24                0.491      0.509
+    U25                0.662      0.338
+    U31                0.453      0.547
+    U32                0.220      0.780
+    U33                0.173      0.827
+    U34                0.505      0.495
+    U35                0.681      0.319
+    U41                0.408      0.592
+    U42                0.198      0.802
+    U43                0.156      0.844
+    U44                0.455      0.545
+    U45                0.613      0.387
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates and residual covariances among observed dependent
+variables may not be included.  To include these, request MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+Means/Intercepts/Thresholds
+
+[ U12$1    ]                      16.358     0.162      0.162        0.162
+[ U15$1    ]                      31.867    -0.184     -0.184       -0.184
+
+
+TECHNICAL 4 OUTPUT
+
+
+     ESTIMATES DERIVED FROM THE MODEL
+
+
+           ESTIMATED MEANS FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+                0.000         0.225         0.135         0.169
+
+
+           ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1             1.000
+ F2             0.861         1.145
+ F3             0.805         0.893         1.178
+ F4             0.738         0.826         0.977         1.060
+
+
+           ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1             1.000
+ F2             0.805         1.000
+ F3             0.742         0.769         1.000
+ F4             0.717         0.749         0.875         1.000
+
+
+     ESTIMATES DERIVED FROM THE MODEL
+
+
+           S.E. FOR ESTIMATED MEANS FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+                0.000         0.054         0.058         0.060
+
+
+           EST./S.E. FOR ESTIMATED MEANS FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+                0.000         4.182         2.347         2.809
+
+
+           TWO-TAILED P-VALUE FOR ESTIMATED MEANS FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+                1.000         0.000         0.019         0.005
+
+
+           S.E. FOR ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1             0.000
+ F2             0.068         0.111
+ F3             0.075         0.100         0.118
+ F4             0.084         0.100         0.106         0.110
+
+
+           EST./S.E. FOR ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1       ***********
+ F2            12.724        10.353
+ F3            10.717         8.940        10.013
+ F4             8.815         8.297         9.254         9.667
+
+
+           TWO-TAILED P-VALUE FOR ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1             0.000
+ F2             0.000         0.000
+ F3             0.000         0.000         0.000
+ F4             0.000         0.000         0.000         0.000
+
+
+           S.E. FOR ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1             0.000
+ F2             0.050         0.000
+ F3             0.056         0.057         0.000
+ F4             0.068         0.062         0.052         0.000
+
+
+           EST./S.E. FOR ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1           999.000
+ F2            16.069       999.000
+ F3            13.243        13.449       999.000
+ F4            10.508        12.117        16.934       999.000
+
+
+           TWO-TAILED P-VALUE FOR ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              F1            F2            F3            F4
+              ________      ________      ________      ________
+ F1             0.000
+ F2             0.000         0.000
+ F3             0.000         0.000         0.000
+ F4             0.000         0.000         0.000         0.000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\users\dchoi2\onedrive - university of nebraska-lincoln\boxmigrationunl\map works\measuerment invariance\invarianc
+
+     Beginning Time:  23:55:27
+        Ending Time:  23:55:27
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2021 Muthen & Muthen
